@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hydrobot", "Hydrobot\Hydrobot.csproj", "{B86032F7-94E0-4437-9EB1-6F13A8698650}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B86032F7-94E0-4437-9EB1-6F13A8698650}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B86032F7-94E0-4437-9EB1-6F13A8698650}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B86032F7-94E0-4437-9EB1-6F13A8698650}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B86032F7-94E0-4437-9EB1-6F13A8698650}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35BE024E-243D-494F-8A55-E05ED2364180}
+	EndGlobalSection
+EndGlobal
