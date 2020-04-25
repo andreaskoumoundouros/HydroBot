@@ -4,3 +4,12 @@ Still very WIP but is intended to have functionality to manage game servers from
 
 Also planned to have general bot functionality such as "fun" commands like the 'cat' command already implemented and more standard
 functionality such as music playback.
+
+##TODO (In no particular order)
+- Register and create server types through commands (Minecraft, GMod etc..)
+- Manage server settings, start, stop, etc from commands
+    - Have some form of user moderation/privilege so that only specified users can modify server
+- Show server status(es) on bot now playing.
+- Per user settings and preferences.
+- Add music playback functionality.
+- DELETE THE USER'S HELP MESSAGE AFTER THEY GET THE DM
