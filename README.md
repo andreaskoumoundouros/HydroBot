@@ -1,4 +1,6 @@
 # HydroBot
-Better version of the hydration bot thing. Eh.
-Basically a bot that mirrors the hydration bot functionality from twitch.
-Though it is tailored more towards use on a discord server with numerous user to keep track of.
+A general use bot designed for the discord server owned by me.
+Still very WIP but is intended to have functionality to manage game servers from bot commands etc.
+
+Also planned to have general bot functionality such as "fun" commands like the 'cat' command already implemented and more standard
+functionality such as music playback.
