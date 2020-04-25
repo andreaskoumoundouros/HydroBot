@@ -25,14 +25,6 @@ namespace Hydrobot.Core.Commands {
 
                 List<string> serverNames = Data.Data.GetServerProcessNames();
 
-                foreach (var process in processes) {
-                    foreach (var serverName in serverNames) {
-                        if (process.MainWindowTitle.ToLower().Contains(serverName)) {
-                            await Context.Channel.SendMessageAsync($"{serverName} is up.");
-                        }
-                    }
-                }
-
                 foreach (var serverName in serverNames) {
                     var isUp = processes.Any(p => p.MainWindowTitle.ToLower().Contains(serverName));
 
@@ -100,7 +92,7 @@ namespace Hydrobot.Core.Commands {
             public async Task SendIp() {
                 try {
                     string externalIp = new System.Net.WebClient().DownloadString("http://icanhazip.com");
-                    await Context.User.SendMessageAsync($"The server IP address is {externalIp}:25565");
+                    await Context.User.SendMessageAsync($"The server IP address is {externalIp.TrimEnd()}:25565");
                 } catch (Exception e) {
                     Console.WriteLine(e);
                     throw;
