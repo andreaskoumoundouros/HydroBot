@@ -4,15 +4,15 @@ using System.Threading.Tasks;
 using Discord;
 using Discord.WebSocket;
 using Discord.Commands;
-
+using Microsoft.Extensions.Configuration;
 
 namespace Hydrobot {
-    class Program {
+    public class Program {
 
         private DiscordSocketClient client;
         private CommandService commands;
 
-        static void Main(string[] args) {
+        static void Main() {
             new Program().MainAsync().GetAwaiter().GetResult();
         }
         private async Task MainAsync() {
@@ -32,7 +32,8 @@ namespace Hydrobot {
             client.Ready += Client_Ready;
             client.Log += Client_Log;
 
-            await client.LoginAsync(TokenType.Bot, Environment.GetEnvironmentVariable("hydrationToken"));
+            // *Add an environment variable called 'hydrationToken' with the value of the bot token to actually run the bot.*
+            await client.LoginAsync(TokenType.Bot, Environment.GetEnvironmentVariable("hydrationToken", EnvironmentVariableTarget.User));
             await client.StartAsync();
 
             await Task.Delay(-1);
@@ -44,7 +45,7 @@ namespace Hydrobot {
         }
 
         private async Task Client_Ready() {
-            await client.SetGameAsync("this is the yeetest!");
+            await client.SetGameAsync("REEEEEEEEEeeeeeeeeeee!");
         }
 
         private async Task Client_MessageRecieved(SocketMessage messageParam) {
@@ -60,14 +61,22 @@ namespace Hydrobot {
             }
 
             int argPos = 0;
-            if (!(message.HasStringPrefix("!", ref argPos)) || message.HasMentionPrefix(client.CurrentUser, ref argPos)) {
+            if (!(message.HasStringPrefix(":)", ref argPos)) || message.HasMentionPrefix(client.CurrentUser, ref argPos)) {
                 return;
             }
 
+            RequestOptions options = new RequestOptions();
+            options.Timeout = 5000;
+
+            await context.Channel.TriggerTypingAsync(options);
             var result = await commands.ExecuteAsync(context, argPos, null);
             if (!result.IsSuccess) {
                 Console.WriteLine($"{DateTime.Now} at commands - something went wrong when executing a command. Text: {context.Message.Content} | Error: {result.ErrorReason}");
             }
+        }
+
+        public System.Collections.Generic.IEnumerable<CommandInfo> GetCommandList() {
+            return commands.Commands;
         }
     }
 }

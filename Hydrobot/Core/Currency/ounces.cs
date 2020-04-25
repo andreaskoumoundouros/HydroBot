@@ -47,7 +47,7 @@ namespace Hydrobot.Core.Currency {
                     return;
                 }
 
-                await Context.Channel.SendMessageAsync($":tada: {User.Mention} you have received **{Amount}** ounces from {Context.User.Username}!\n you currently have {Data.Data.GetOunces(Context.User.Id)} ounces!");
+                await Context.Channel.SendMessageAsync($":tada: {User.Mention} you have received **{Amount}** ounces from {Context.User.Username}!\n you previously had {Data.Data.GetOunces(Context.User.Id)} ounces!");
 
                 await Data.Data.SaveOunces(User.Id, Amount);
             } 

@@ -4,7 +4,7 @@ using System.Text;
 using System.ComponentModel.DataAnnotations;
 
 namespace Hydrobot.Resources.Database {
-    public class ounce {
+    public class Ounce {
 
         [Key]
         public ulong UserId { get; set; }
