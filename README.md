@@ -6,8 +6,7 @@ Also planned to have general bot functionality such as "fun" commands like the '
 functionality such as music playback.
 
 ## TODO (In no particular order)
-- Register and create server types through commands (Minecraft, GMod etc..)
-- Manage server settings, start, stop, etc from commands
+- Manage server settings, start, stop, etc from commands (Maybe?)
     - Have some form of user moderation/privilege so that only specified users can modify server
 - Show server status(es) on bot now playing.
 - Per user settings and preferences.
