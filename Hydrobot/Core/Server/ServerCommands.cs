@@ -72,37 +72,6 @@ namespace Hydrobot.Core.Commands {
                 Process.Start(startInfo);
             }
 
-            [Command("reset"), Summary("Resets the server?")]
-            public async Task Reset(IUser User = null) {
-                await Context.Channel.SendMessageAsync($"No work yet :)");
-                return;
-
-                if (User == null) {
-                    // No user has been mentioned
-                    await Context.Channel.SendMessageAsync($":x: You need to mention which user to reset ounces for! e.g. !ounces reset {Context.User.Mention}");
-                    return;
-                }
-
-                if (User.IsBot) {
-                    await Context.Channel.SendMessageAsync(":x: Bots aren't people!");
-                    return;
-                }
-
-                SocketGuildUser User1 = Context.User as SocketGuildUser;
-                if (!User1.GuildPermissions.Administrator) {
-                    await Context.Channel.SendMessageAsync(":x: You don't have the permissions to use this comand! Please ask a moderator to do so.");
-                    return;
-                }
-
-                await Context.Channel.SendMessageAsync($":skull: {User.Mention}, you have been reset by {Context.User.Username}. Your ounces are now 0.");
-
-                using (var DbContext = new SqliteDbContext()) {
-                    DbContext.ounces.RemoveRange(DbContext.ounces.Where(x => x.UserId == User.Id));
-                    await DbContext.SaveChangesAsync();
-                }
-
-            }
-
             [Command("ip"), Alias("Address"), Summary("DMs the desired server IP address")]
             public async Task SendIp([Remainder]string serverName = "minecraft server") {
                 // Check to make sure that the desired server actually exists.
