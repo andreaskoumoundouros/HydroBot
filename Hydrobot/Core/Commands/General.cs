@@ -51,7 +51,10 @@ namespace Hydrobot.Core.Commands {
             }
 
             //await Context.Channel.SendMessageAsync("", false, builder.Build());
-            await Context.User.SendMessageAsync("", false, builder.Build());
+
+            await Context.Message.DeleteAsync();
+
+            await Context.User.SendMessageAsync("", false, builder.Build());            
         }
 
         [Command("hello"), Alias("helloworld", "ping"), Summary("basic helloworld/ping command")]

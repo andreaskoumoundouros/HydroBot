@@ -50,10 +50,10 @@ namespace Hydrobot.Core.Data {
         }
 
         // TODO: Select the executable by name in database.
-        public static string GetServerExecutableLocation() {
+        public static string GetServerExecutableLocation(string processName) {
             using (var DbContext = new SqliteDbContext()) {
                 try {
-                    return DbContext.servers.First(item => item.ProcessName.Contains("minecraft server")).ExecutableLocation;
+                    return DbContext.servers.First(item => item.ProcessName.Contains(processName)).ExecutableLocation;
                 } catch (Exception e) {
                     Console.WriteLine(e);
                     return "";
@@ -61,10 +61,10 @@ namespace Hydrobot.Core.Data {
             }
         }
 
-        public static string GetServerExecutableName() {
+        public static string GetServerExecutableName(string processName) {
             using (var DbContext = new SqliteDbContext()) {
                 try {
-                    return DbContext.servers.First(item => item.ProcessName.Contains("minecraft server")).ExecutableName;
+                    return DbContext.servers.First(item => item.ProcessName.Contains(processName)).ExecutableName;
                 } catch (Exception e) {
                     Console.WriteLine(e);
                     return "";
@@ -72,13 +72,24 @@ namespace Hydrobot.Core.Data {
             }
         }
 
-        public static ulong GetServerPort() {
+        public static ulong GetServerPort(string processName) {
             using (var DbContext = new SqliteDbContext()) {
                 try {
-                    return DbContext.servers.First(item => item.ProcessName.Contains("minecraft server")).Port;
+                    return DbContext.servers.First(item => item.ProcessName.Contains(processName)).Port;
                 } catch (Exception e) {
                     Console.WriteLine(e);
                     return 0;
+                }
+            }
+        }
+
+        public static string GetServerDescription(string processName) {
+            using (var DbContext = new SqliteDbContext()) {
+                try {
+                    return DbContext.servers.First(item => item.ProcessName.Contains(processName)).Description;
+                } catch (Exception e) {
+                    Console.WriteLine(e);
+                    return "";
                 }
             }
         }

@@ -11,5 +11,6 @@ namespace Hydrobot.Resources.Database {
         public string ExecutableLocation { get; set; }
         public string ExecutableName { get; set; }
         public ulong Port { get; set; }
+        public string Description { get; set; }
     }
 }
