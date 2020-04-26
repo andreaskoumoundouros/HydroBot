@@ -49,7 +49,6 @@ namespace Hydrobot.Core.Data {
             }
         }
 
-        // TODO: Select the executable by name in database.
         public static string GetServerExecutableLocation(string processName) {
             using (var DbContext = new SqliteDbContext()) {
                 try {
