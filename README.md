@@ -11,4 +11,5 @@ functionality such as music playback.
 - Show server status(es) on bot now playing.
 - Per user settings and preferences.
 - Add music playback functionality.
-~~- DELETE THE USER'S HELP MESSAGE AFTER THEY GET THE DM~~ DONE
+
+- ~~DELETE THE USER'S HELP MESSAGE AFTER THEY GET THE DM~~ DONE
